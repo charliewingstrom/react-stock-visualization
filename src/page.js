@@ -40,7 +40,7 @@ class Page extends React.Component {
                 data: {
                     labels: chartDataArray[0].reverse(),
                     datasets: [{
-                        label: '# of Votes',
+                        label: 'Price',
                         data: chartDataArray[1].reverse(),
                         backgroundColor: 
                             'rgba(255, 99, 132, 0.2)',
@@ -52,10 +52,11 @@ class Page extends React.Component {
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true
                             }
                         }]
                     }
@@ -70,7 +71,6 @@ class Page extends React.Component {
       }
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({stockCode: event.target.value});
         this.componentDidMount();
     }
     render() {
@@ -81,7 +81,7 @@ class Page extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Enter a Code:
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" value={this.state.stockCode} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
