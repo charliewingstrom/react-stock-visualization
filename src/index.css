@@ -17,3 +17,11 @@ code {
   height: 600px;
   width: 1080px;
 }
+.chartHeader {
+  display: flex;
+  position: relative;
+}
+.headerItem {
+  float: left;
+  margin: 2em;
+}
