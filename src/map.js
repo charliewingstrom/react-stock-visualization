@@ -45,6 +45,7 @@ export default class Map extends React.Component {
         // Replace with pulled data for Covid19
         polygonSeries.data = [
         {
+<<<<<<< HEAD
             id: "US-AK",
             value: data.find(x => x.state === 'AK').positive
         },
@@ -243,6 +244,206 @@ export default class Map extends React.Component {
         {
             id: "US-WY",
             value: data.find(x => x.state === 'WY').positive
+=======
+            id: "US-AL",
+            value: 44471
+        },
+        {
+            id: "US-AK",
+            value: 62693
+        },
+        {
+            id: "US-AZ",
+            value: 51306
+        },
+        {
+            id: "US-AR",
+            value: 26734
+        },
+        {
+            id: "US-CA",
+            value: 238710
+        },
+        {
+            id: "US-CO",
+            value: 43012
+        },
+        {
+            id: "US-CT",
+            value: 34055
+        },
+        {
+            id: "US-DE",
+            value: 78360
+        },
+        {
+            id: "US-FL",
+            value: 159823
+        },
+        {
+            id: "US-GA",
+            value: 81864
+        },
+        {
+            id: "US-HI",
+            value: 121153
+        },
+        {
+            id: "US-ID",
+            value: 129395
+        },
+        {
+            id: "US-IL",
+            value: 124192
+        },
+        {
+            id: "US-IN",
+            value: 60804
+        },
+        {
+            id: "US-IA",
+            value: 29263
+        },
+        {
+            id: "US-KS",
+            value: 26884
+        },
+        {
+            id: "US-KY",
+            value: 40417
+        },
+        {
+            id: "US-LA",
+            value: 44689
+        },
+        {
+            id: "US-ME",
+            value: 12749
+        },
+        {
+            id: "US-MD",
+            value: 52964
+        },
+        {
+            id: "US-MA",
+            value: 63490
+        },
+        {
+            id: "US-MI",
+            value: 99384
+        },
+        {
+            id: "US-MN",
+            value: 49194
+        },
+        {
+            id: "US-MS",
+            value: 28446
+        },
+        {
+            id: "US-MO",
+            value: 55952
+        },
+        {
+            id: "US-MT",
+            value: 90219
+        },
+        {
+            id: "US-NE",
+            value: 17112
+        },
+        {
+            id: "US-NV",
+            value: 19982
+        },
+        {
+            id: "US-NH",
+            value: 12357
+        },
+        {
+            id: "US-NJ",
+            value: 84143
+        },
+        {
+            id: "US-NM",
+            value: 18190
+        },
+        {
+            id: "US-NY",
+            value: 189764
+        },
+        {
+            id: "US-NC",
+            value: 80493
+        },
+        {
+            id: "US-ND",
+            value: 64220
+        },
+        {
+            id: "US-OH",
+            value: 113531
+        },
+        {
+            id: "US-OK",
+            value: 34506
+        },
+        {
+            id: "US-OR",
+            value: 34213
+        },
+        {
+            id: "US-PA",
+            value: 122810
+        },
+        {
+            id: "US-RI",
+            value: 104831
+        },
+        {
+            id: "US-SC",
+            value: 40120
+        },
+        {
+            id: "US-SD",
+            value: 75484
+        },
+        {
+            id: "US-TN",
+            value: 56892
+        },
+        {
+            id: "US-TX",
+            value: 20851
+        },
+        {
+            id: "US-UT",
+            value: 22331
+        },
+        {
+            id: "US-VT",
+            value: 60882
+        },
+        {
+            id: "US-VA",
+            value: 70785
+        },
+        {
+            id: "US-WA",
+            value: 58941
+        },
+        {
+            id: "US-WV",
+            value: 18083
+        },
+        {
+            id: "US-WI",
+            value: 53636
+        },
+        {
+            id: "US-WY",
+            value: 49378
+>>>>>>> refs/remotes/origin/master
         }
         ];
 
@@ -250,15 +451,15 @@ export default class Map extends React.Component {
         heatLegend.series = polygonSeries;
         heatLegend.align = "right";
         heatLegend.valign = "bottom";
-        heatLegend.height = am4core.percent(80);
+        heatLegend.height = am4core.percent(60);
         heatLegend.orientation = "vertical";
         heatLegend.valign = "middle";
         heatLegend.marginRight = am4core.percent(4);
         heatLegend.valueAxis.renderer.opposite = true;
-        heatLegend.valueAxis.renderer.dx = - 25;
+        heatLegend.valueAxis.renderer.dx = -25;
         heatLegend.valueAxis.strictMinMax = false;
         heatLegend.valueAxis.fontSize = 9;
-        heatLegend.valueAxis.logarithmic = true;
+        heatLegend.valueAxis.logarithmic = false;
 
         var polygonTemplate = polygonSeries.mapPolygons.template;
         polygonTemplate.tooltipText = "{name}: {value}";
@@ -302,7 +503,7 @@ export default class Map extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={'mapPage'}>
                 <h1>COVID-19 Heatmap</h1>
                 <div id="chartdiv" style={{ width: "100%", height: "700px" }}></div>
                 <p> {this.tmp} </p>
