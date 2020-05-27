@@ -3,6 +3,7 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4geodata_usaLow from "@amcharts/amcharts4-geodata/usaLow";
+import callCovidTracking from "./callCovidTrackingApi.js";
 
 
 export default class Map extends React.Component {
@@ -15,6 +16,11 @@ export default class Map extends React.Component {
     }
 
     componentDidMount() {
+        //get data from covidtracking.com
+        var tmp = callCovidTracking();
+        tmp.then(data => {
+          console.log(data);
+
         am4core.useTheme(am4themes_animated);
 
         var chart = am4core.create("chartdiv", am4maps.MapChart);
@@ -39,204 +45,204 @@ export default class Map extends React.Component {
         // Replace with pulled data for Covid19
         polygonSeries.data = [
         {
-            id: "US-AL",
-            value: 444710
-        },
-        {
             id: "US-AK",
-            value: 626932
+            value: data.find(x => x.state === 'AK').positive
         },
         {
-            id: "US-AZ",
-            value: 5130632
+            id: "US-AL",
+            value: data.find(x => x.state === 'AL').positive
         },
         {
             id: "US-AR",
-            value: 2673400
+            value: data.find(x => x.state === 'AR').positive
+        },
+        {
+            id: "US-AZ",
+            value: data.find(x => x.state === 'AZ').positive
         },
         {
             id: "US-CA",
-            value: 33871648
+            value: data.find(x => x.state === 'CA').positive
         },
         {
             id: "US-CO",
-            value: 4301261
+            value: data.find(x => x.state === 'CO').positive
         },
         {
             id: "US-CT",
-            value: 3405565
+            value: data.find(x => x.state === 'CT').positive
         },
         {
             id: "US-DE",
-            value: 783600
+            value: data.find(x => x.state === 'DE').positive
         },
         {
             id: "US-FL",
-            value: 15982378
+            value: data.find(x => x.state === 'FL').positive
         },
         {
             id: "US-GA",
-            value: 8186453
+            value: data.find(x => x.state === 'GA').positive
         },
         {
             id: "US-HI",
-            value: 1211537
-        },
-        {
-            id: "US-ID",
-            value: 1293953
-        },
-        {
-            id: "US-IL",
-            value: 12419293
-        },
-        {
-            id: "US-IN",
-            value: 6080485
+            value: data.find(x => x.state === 'HI').positive
         },
         {
             id: "US-IA",
-            value: 2926324
+            value: data.find(x => x.state === 'IA').positive
+        },
+        {
+            id: "US-ID",
+            value: data.find(x => x.state === 'ID').positive
+        },
+        {
+            id: "US-IL",
+            value: data.find(x => x.state === 'IL').positive
+        },
+        {
+            id: "US-IN",
+            value: data.find(x => x.state === 'IN').positive
         },
         {
             id: "US-KS",
-            value: 2688418
+            value: data.find(x => x.state === 'KS').positive
         },
         {
             id: "US-KY",
-            value: 4041769
+            value: data.find(x => x.state === 'KY').positive
         },
         {
             id: "US-LA",
-            value: 4468976
-        },
-        {
-            id: "US-ME",
-            value: 1274923
-        },
-        {
-            id: "US-MD",
-            value: 5296486
+            value: data.find(x => x.state === 'LA').positive
         },
         {
             id: "US-MA",
-            value: 6349097
+            value: data.find(x => x.state === 'MA').positive
+        },
+        {
+            id: "US-MD",
+            value: data.find(x => x.state === 'MD').positive
+        },
+        {
+            id: "US-ME",
+            value: data.find(x => x.state === 'ME').positive
         },
         {
             id: "US-MI",
-            value: 9938444
+            value: data.find(x => x.state === 'MI').positive
         },
         {
             id: "US-MN",
-            value: 4919479
-        },
-        {
-            id: "US-MS",
-            value: 2844658
+            value: data.find(x => x.state === 'MN').positive
         },
         {
             id: "US-MO",
-            value: 5595211
+            value: data.find(x => x.state === 'MO').positive
+        },
+        {
+            id: "US-MS",
+            value: data.find(x => x.state === 'MS').positive
         },
         {
             id: "US-MT",
-            value: 902195
-        },
-        {
-            id: "US-NE",
-            value: 1711263
-        },
-        {
-            id: "US-NV",
-            value: 1998257
-        },
-        {
-            id: "US-NH",
-            value: 1235786
-        },
-        {
-            id: "US-NJ",
-            value: 8414350
-        },
-        {
-            id: "US-NM",
-            value: 1819046
-        },
-        {
-            id: "US-NY",
-            value: 18976457
+            value: data.find(x => x.state === 'MT').positive
         },
         {
             id: "US-NC",
-            value: 8049313
+            value: data.find(x => x.state === 'NC').positive
         },
         {
             id: "US-ND",
-            value: 642200
+            value: data.find(x => x.state === 'ND').positive
+        },
+        {
+            id: "US-NE",
+            value: data.find(x => x.state === 'NE').positive
+        },
+        {
+            id: "US-NH",
+            value: data.find(x => x.state === 'NH').positive
+        },
+        {
+            id: "US-NJ",
+            value: data.find(x => x.state === 'NJ').positive
+        },
+        {
+            id: "US-NM",
+            value: data.find(x => x.state === 'NM').positive
+        },
+        {
+            id: "US-NV",
+            value: data.find(x => x.state === 'NV').positive
+        },
+        {
+            id: "US-NY",
+            value: data.find(x => x.state === 'NY').positive
         },
         {
             id: "US-OH",
-            value: 11353140
+            value: data.find(x => x.state === 'OH').positive
         },
         {
             id: "US-OK",
-            value: 3450654
+            value: data.find(x => x.state === 'OK').positive
         },
         {
             id: "US-OR",
-            value: 3421399
+            value: data.find(x => x.state === 'OR').positive
         },
         {
             id: "US-PA",
-            value: 12281054
+            value: data.find(x => x.state === 'PA').positive
         },
         {
             id: "US-RI",
-            value: 1048319
+            value: data.find(x => x.state === 'RI').positive
         },
         {
             id: "US-SC",
-            value: 4012012
+            value: data.find(x => x.state === 'SC').positive
         },
         {
             id: "US-SD",
-            value: 754844
+            value: data.find(x => x.state === 'SD').positive
         },
         {
             id: "US-TN",
-            value: 5689283
+            value: data.find(x => x.state === 'TN').positive
         },
         {
             id: "US-TX",
-            value: 20851820
+            value: data.find(x => x.state === 'TX').positive
         },
         {
             id: "US-UT",
-            value: 2233169
-        },
-        {
-            id: "US-VT",
-            value: 608827
+            value: data.find(x => x.state === 'UT').positive
         },
         {
             id: "US-VA",
-            value: 7078515
+            value: data.find(x => x.state === 'VA').positive
+        },
+        {
+            id: "US-VT",
+            value: data.find(x => x.state === 'VT').positive
         },
         {
             id: "US-WA",
-            value: 5894121
-        },
-        {
-            id: "US-WV",
-            value: 1808344
+            value: data.find(x => x.state === 'WA').positive
         },
         {
             id: "US-WI",
-            value: 5363675
+            value: data.find(x => x.state === 'WI').positive
+        },
+        {
+            id: "US-WV",
+            value: data.find(x => x.state === 'WV').positive
         },
         {
             id: "US-WY",
-            value: 493782
+            value: data.find(x => x.state === 'WY').positive
         }
         ];
 
@@ -284,6 +290,8 @@ export default class Map extends React.Component {
         })
 
         this.chart = chart;
+        })
+        .catch(err => console.log("there was an error: " + err));
     }
 
     componentWillUnmount() {
@@ -297,6 +305,7 @@ export default class Map extends React.Component {
             <div>
                 <h1>COVID-19 Heatmap</h1>
                 <div id="chartdiv" style={{ width: "100%", height: "700px" }}></div>
+                <p> {this.tmp} </p>
             </div>
         );
     }
