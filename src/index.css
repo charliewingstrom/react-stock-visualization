@@ -12,10 +12,11 @@ code {
     monospace;
 }
 
-.page {
+.chartPage {
   position: relative; 
-  height: 600px;
-  width: 1080px;
+  float:left;
+  height: 400px;
+  width: 700px;
 }
 .chartHeader {
   display: flex;
@@ -24,4 +25,12 @@ code {
 .headerItem {
   float: left;
   margin: 2em;
+}
+.mapPage {
+  position: relative;
+  height: 400px;
+  width: 700px;
+}
+.chartAndMap {
+  display: flex;
 }

@@ -90,7 +90,7 @@ class Page extends React.Component {
     }
     render() {
         return (
-            <div className={'page'}>
+            <div className={'chartPage'}>
                 <h1>This is a starter page.</h1>
                 <h3>The stock is {this.state.stockCode}</h3>
                 <div className={'chartHeader'}>
@@ -105,7 +105,7 @@ class Page extends React.Component {
                     </div>
                     <div className={'headerItem'}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">Time Series</FormLabel>
+                            <FormLabel component="legend">Time Series [ These don't work yet :'( ]</FormLabel>
                             <RadioGroup row aria-label="position" name="position" defaultValue="top">
                                 <FormControlLabel
                                 value="TIME_SERIES_DAILY"
@@ -133,8 +133,9 @@ class Page extends React.Component {
                     </div>
                 </div>
                 <canvas 
+                    padding="5"
                     id="myChart" 
-                    width="400" 
+                    width="200" 
                     height="400"
                     ref={this.chartRef}
                 />

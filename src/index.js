@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Page from './page.js';
-import Map from './map.js'
-
+import App from './app.js';
 ReactDOM.render(
-    <Page/>,
+    //<Page/>,
     //<Map/>,
+    <App/>,
   	document.getElementById('root')
 );
 

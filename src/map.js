@@ -294,7 +294,7 @@ export default class Map extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={'mapPage'}>
                 <h1>COVID-19 Heatmap</h1>
                 <div id="chartdiv" style={{ width: "100%", height: "700px" }}></div>
             </div>
