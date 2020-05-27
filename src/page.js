@@ -134,9 +134,7 @@ class Page extends React.Component {
                 </div>
                 <canvas 
                     padding="5"
-                    id="myChart" 
-                    width="200" 
-                    height="400"
+                    id="myChart"
                     ref={this.chartRef}
                 />
             </div>

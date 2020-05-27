@@ -45,7 +45,6 @@ export default class Map extends React.Component {
         // Replace with pulled data for Covid19
         polygonSeries.data = [
         {
-<<<<<<< HEAD
             id: "US-AK",
             value: data.find(x => x.state === 'AK').positive
         },
@@ -244,7 +243,9 @@ export default class Map extends React.Component {
         {
             id: "US-WY",
             value: data.find(x => x.state === 'WY').positive
-=======
+        },
+/*=======
+        {
             id: "US-AL",
             value: 44471
         },
@@ -443,8 +444,8 @@ export default class Map extends React.Component {
         {
             id: "US-WY",
             value: 49378
->>>>>>> refs/remotes/origin/master
-        }
+//>>>>>>> refs/remotes/origin/master
+        }*/
         ];
 
         let heatLegend = chart.createChild(am4maps.HeatLegend);
