@@ -40,203 +40,203 @@ export default class Map extends React.Component {
         polygonSeries.data = [
         {
             id: "US-AL",
-            value: 444710
+            value: 44471
         },
         {
             id: "US-AK",
-            value: 626932
+            value: 62693
         },
         {
             id: "US-AZ",
-            value: 5130632
+            value: 51306
         },
         {
             id: "US-AR",
-            value: 2673400
+            value: 26734
         },
         {
             id: "US-CA",
-            value: 33871648
+            value: 238710
         },
         {
             id: "US-CO",
-            value: 4301261
+            value: 43012
         },
         {
             id: "US-CT",
-            value: 3405565
+            value: 34055
         },
         {
             id: "US-DE",
-            value: 783600
+            value: 78360
         },
         {
             id: "US-FL",
-            value: 15982378
+            value: 159823
         },
         {
             id: "US-GA",
-            value: 8186453
+            value: 81864
         },
         {
             id: "US-HI",
-            value: 1211537
+            value: 121153
         },
         {
             id: "US-ID",
-            value: 1293953
+            value: 129395
         },
         {
             id: "US-IL",
-            value: 12419293
+            value: 124192
         },
         {
             id: "US-IN",
-            value: 6080485
+            value: 60804
         },
         {
             id: "US-IA",
-            value: 2926324
+            value: 29263
         },
         {
             id: "US-KS",
-            value: 2688418
+            value: 26884
         },
         {
             id: "US-KY",
-            value: 4041769
+            value: 40417
         },
         {
             id: "US-LA",
-            value: 4468976
+            value: 44689
         },
         {
             id: "US-ME",
-            value: 1274923
+            value: 12749
         },
         {
             id: "US-MD",
-            value: 5296486
+            value: 52964
         },
         {
             id: "US-MA",
-            value: 6349097
+            value: 63490
         },
         {
             id: "US-MI",
-            value: 9938444
+            value: 99384
         },
         {
             id: "US-MN",
-            value: 4919479
+            value: 49194
         },
         {
             id: "US-MS",
-            value: 2844658
+            value: 28446
         },
         {
             id: "US-MO",
-            value: 5595211
+            value: 55952
         },
         {
             id: "US-MT",
-            value: 902195
+            value: 90219
         },
         {
             id: "US-NE",
-            value: 1711263
+            value: 17112
         },
         {
             id: "US-NV",
-            value: 1998257
+            value: 19982
         },
         {
             id: "US-NH",
-            value: 1235786
+            value: 12357
         },
         {
             id: "US-NJ",
-            value: 8414350
+            value: 84143
         },
         {
             id: "US-NM",
-            value: 1819046
+            value: 18190
         },
         {
             id: "US-NY",
-            value: 18976457
+            value: 189764
         },
         {
             id: "US-NC",
-            value: 8049313
+            value: 80493
         },
         {
             id: "US-ND",
-            value: 642200
+            value: 64220
         },
         {
             id: "US-OH",
-            value: 11353140
+            value: 113531
         },
         {
             id: "US-OK",
-            value: 3450654
+            value: 34506
         },
         {
             id: "US-OR",
-            value: 3421399
+            value: 34213
         },
         {
             id: "US-PA",
-            value: 12281054
+            value: 122810
         },
         {
             id: "US-RI",
-            value: 1048319
+            value: 104831
         },
         {
             id: "US-SC",
-            value: 4012012
+            value: 40120
         },
         {
             id: "US-SD",
-            value: 754844
+            value: 75484
         },
         {
             id: "US-TN",
-            value: 5689283
+            value: 56892
         },
         {
             id: "US-TX",
-            value: 20851820
+            value: 20851
         },
         {
             id: "US-UT",
-            value: 2233169
+            value: 22331
         },
         {
             id: "US-VT",
-            value: 608827
+            value: 60882
         },
         {
             id: "US-VA",
-            value: 7078515
+            value: 70785
         },
         {
             id: "US-WA",
-            value: 5894121
+            value: 58941
         },
         {
             id: "US-WV",
-            value: 1808344
+            value: 18083
         },
         {
             id: "US-WI",
-            value: 5363675
+            value: 53636
         },
         {
             id: "US-WY",
-            value: 493782
+            value: 49378
         }
         ];
 
@@ -244,15 +244,15 @@ export default class Map extends React.Component {
         heatLegend.series = polygonSeries;
         heatLegend.align = "right";
         heatLegend.valign = "bottom";
-        heatLegend.height = am4core.percent(80);
+        heatLegend.height = am4core.percent(60);
         heatLegend.orientation = "vertical";
         heatLegend.valign = "middle";
         heatLegend.marginRight = am4core.percent(4);
         heatLegend.valueAxis.renderer.opposite = true;
-        heatLegend.valueAxis.renderer.dx = - 25;
+        heatLegend.valueAxis.renderer.dx = -25;
         heatLegend.valueAxis.strictMinMax = false;
         heatLegend.valueAxis.fontSize = 9;
-        heatLegend.valueAxis.logarithmic = true;
+        heatLegend.valueAxis.logarithmic = false;
 
         var polygonTemplate = polygonSeries.mapPolygons.template;
         polygonTemplate.tooltipText = "{name}: {value}";
