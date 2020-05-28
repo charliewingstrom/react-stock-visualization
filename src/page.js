@@ -13,6 +13,7 @@ class Page extends React.Component {
         super(props);
         this.state = {
             stockCode: 'AAPL',
+            myChart: undefined,
             timeSeries: 'TIME_SERIES_DAILY',
         }
         this.handleChange = this.handleChange.bind(this);
@@ -24,7 +25,10 @@ class Page extends React.Component {
         'TIME_SERIES_WEEKLY': 'Weekly Time Series' }
     chartRef = React.createRef();
 
-    componentDidMount() {
+    createChart() {
+        if (this.state.myChart) {
+            this.state.myChart.destroy();
+        }
         const myChartRef = this.chartRef.current.getContext("2d");
        
         var tmp = callAlphaVenture(this.state.stockCode, this.state.timeSeries);
@@ -44,35 +48,42 @@ class Page extends React.Component {
             return [dates, openingValues]
         })
         .then(chartDataArray => {
-            new Chart(myChartRef, {
-                type: 'line',
-                data: {
-                    labels: chartDataArray[0].reverse(),
-                    datasets: [{
-                        label: 'Price',
-                        data: chartDataArray[1].reverse(),
-                        backgroundColor: 
-                            'rgba(255, 99, 132, 0.2)',
-                        
-                        borderColor: 
-                            'rgba(255, 99, 132, 1)',
-
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                            }
+            this.setState({
+                myChart: new Chart(myChartRef, {
+                    type: 'line',
+                    data: {
+                        labels: chartDataArray[0].reverse(),
+                        datasets: [{
+                            label: 'Price',
+                            data: chartDataArray[1].reverse(),
+                            backgroundColor: 
+                                'rgba(255, 99, 132, 0.2)',
+                            
+                            borderColor: 
+                                'rgba(255, 99, 132, 1)',
+    
+                            borderWidth: 1
                         }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                }
+                            }]
+                        }
                     }
-                }
-            });
+                }),
+            })
+            
         })
         .catch(err => console.log("there was an error: " + err));
+    }
+    
+    componentDidMount() {
+        this.createChart();
     }
 
     handleChange(event) {
