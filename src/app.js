@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    background: '#2E3B55' 
+    background: '#2E3B55'
   },
   drawer: {
     width: drawerWidth,
@@ -97,7 +97,7 @@ function App() {
       </div>
       );
   }
-  
+
 class _MapPage extends React.Component{
     render() {
       return (
@@ -107,7 +107,7 @@ class _MapPage extends React.Component{
       );
     }
   }
-  
+
 class _WelcomePage extends React.Component {
     render() {
         return(
@@ -138,7 +138,7 @@ class _AboutPage extends React.Component{
           <li>Our stock data will be from an API provided by Alpha Vantage to display real time and historical stock data. </li>
           <li>The authentication required is an API key provided for free by Alpha Vantage.</li>
         </ul>
-        <p>The Covid-19 case data will be gathered from Johns Hopkins using an API. This API requires no authentication to use.</p>
+        <p>The Covid-19 case data will be gathered from The Covid Tracking Project using their public API. This API requires no authentication to use.</p>
         </div>
     )
   }
@@ -149,4 +149,3 @@ const WelcomePage = withRouter(_WelcomePage);
 const AboutPage = withRouter(_AboutPage);
 
 export default App;
-
